@@ -1,5 +1,7 @@
-import Modul from "./model";
+import Model from "./model.js";
+let model = new Model()
 
-let model = new Modul()
+console.log(model)
 
 model.addTask('Заверстать стартовый шаблон')
+console.log(model)

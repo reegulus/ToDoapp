@@ -15,8 +15,9 @@ export default class Model {
         task.status = 'done'
     }
 
-    removeTask() {
-
+    removeTask(task) {
+        const index = this.tasks.indexOf(task)
+        this.tasks.splice(index, 1)
     }
 }
 

@@ -1,10 +1,18 @@
 export default class Model {
     constructor() {
         this.tasks = []
+        this.loadFromLocalStorage()
     }
 
     saveToLocalStorage() {
         localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    }
+
+    loadFromLocalStorage() {
+      const data = localStorage.getItem('tasks')
+        if (data) {
+            this.tasks = JSON.parse(data)
+        }
     }
 
     addTask(text) {

@@ -3,6 +3,10 @@ export default class Model {
         this.tasks = []
     }
 
+    saveToLocalStorage() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    }
+
     addTask(text) {
         const newTask = {
             status: 'active',

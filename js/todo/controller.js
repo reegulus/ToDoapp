@@ -8,6 +8,5 @@ model.addTask('Заверстать стартовый шаблон')
 model.addTask('Написать скрипт')
 model.addTask('Записать урок')
 console.log(model)
-model.saveToLocalStorage()
 
-view.renderTasks(model.tasks[1])
+view.renderTasks(model.tasks[2])

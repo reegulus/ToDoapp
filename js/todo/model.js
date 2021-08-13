@@ -1,52 +1,51 @@
 export default class Model {
-    constructor() {
-        this.tasks = []
-        this.loadFromLocalStorage()
-    }
 
-    saveToLocalStorage() {
-        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    constructor() {
+        this.tasks = [];
+        this.loadFromLocalStorage();
     }
 
     loadFromLocalStorage() {
-      const data = localStorage.getItem('tasks')
+        const data = localStorage.getItem('tasks');
         if (data) {
-            this.tasks = JSON.parse(data)
+            this.tasks = JSON.parse(data);
         }
+    }
+
+    saveToLocalStorage() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
 
     addTask(text) {
         const newTask = {
             status: 'active',
-            text: text
-        }
-        this.tasks.push(newTask)
-        this.saveToLocalStorage()
+            text: text,
+        };
+
+        this.tasks.push(newTask);
+        this.saveToLocalStorage();
+
+        return newTask;
     }
 
     doneTask(task) {
-        task.status = 'done'
-        this.saveToLocalStorage()
+        task.status = 'done';
+        this.saveToLocalStorage();
     }
 
     removeTask(task) {
-        const index = this.tasks.indexOf(task)
-        this.tasks.splice(index, 1)
-        this.saveToLocalStorage()
+        const index = this.tasks.indexOf(task);
+        this.tasks.splice(index, 1);
+        this.saveToLocalStorage();
     }
 }
 
+// tasks = ['Заверстать стартовый шаблон', 'Написать скрипт', 'Записать урок', '465465464'];
 // tasks = [
 //     {
 //         status: 'active',
-//         text: 'Заверстать стартовый шаблон'
-//     },
-//     {
-//         status: 'active',
-//         text: 'Написать скрипт'
-//     },
-//     {
-//         status: 'active',
-//         text: 'Записать урок'
-//     }
-// ]
+// 		text: 'Заверстать стартовый шаблон',
+// 	},
+// 	{},
+// 	{},
+// ];

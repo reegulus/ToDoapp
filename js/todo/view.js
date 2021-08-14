@@ -15,7 +15,7 @@ export default class View {
         const completeClass = taskObject.status === 'done' ? 'completed' : '';
         const checked = taskObject.status === 'done' ? 'checked' : '';
 
-        const taskHTML = `  <li class="todo-item">
+        const taskHTML = `  <li class="todo-item" data-id="${taskObject.id}">
                                 <label class="todo-item-label">
                                     <input class="checkbox" type="checkbox" ${checked} />
                                     <span class="${completeClass}">${taskObject.text}</span>

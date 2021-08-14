@@ -14,5 +14,8 @@ view.elements.form.addEventListener('submit', function (e) {
 view.elements.tasksList.addEventListener('click', function (e) {
     if (e.target.getAttribute('type') === 'checkbox') {
         const id = e.target.closest('.todo-item').dataset.id
+        const task = model.findTask(id)
+        model.doneTask(task)
     }
 })
+

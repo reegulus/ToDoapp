@@ -34,6 +34,15 @@ export default class Model {
         return newTask;
     }
 
+    findTask(id) {
+      const task = this.tasks.find(function (task) {
+            if(task.id === parseInt(id)) {
+                return true
+            }
+        })
+        return task;
+    }
+
     doneTask(task) {
         task.status = 'done';
         this.saveToLocalStorage();

@@ -46,11 +46,11 @@ export default class Model {
     changeStatusTask(task) {
 
         if (task.status === 'active') {
-            task.status === 'done'
+            task.status = 'done'
         }else {
-            task.status === 'active'
+            task.status = 'active'
         }
-        task.status = 'done';
+
         this.saveToLocalStorage();
     }
 

@@ -19,7 +19,7 @@ export default class View {
                                 <label class="todo-item-label">
                                     <input class="checkbox" type="checkbox" ${checked} />
                                     <span class="${completeClass}">${taskObject.text}</span>
-                                    <button class="btn btn-secondary btn-sm">Удалить</button>
+                                    <button class="btn btn-secondary btn-sm" data-delete>Удалить</button>
                                 </label>
                             </li>`;
         this.elements.tasksList.insertAdjacentHTML('beforeend', taskHTML);
@@ -33,10 +33,16 @@ export default class View {
         taskObject.id
         const taskElement = this.elements.tasksList.querySelector(`[data-id="${taskObject.id}"]`)
         let taskTextEl = taskElement.querySelector('span')
+
         if(taskObject.status === 'done') {
             taskTextEl.classList.add('completed')
         }else {
             taskTextEl.classList.remove('completed')
         }
+    }
+    removeTask(taskObject) {
+        taskObject.id
+        const taskElement = this.elements.tasksList.querySelector(`[data-id="${taskObject.id}"]`)
+        taskElement.remove()
     }
 }

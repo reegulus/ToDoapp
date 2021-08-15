@@ -12,12 +12,21 @@ view.elements.form.addEventListener('submit', function (e) {
 })
 
 view.elements.tasksList.addEventListener('click', function (e) {
+
     if (e.target.getAttribute('type') === 'checkbox') {
         const id = e.target.closest('.todo-item').dataset.id
         const task = model.findTask(id)
         model.changeStatusTask(task)
-
         view.changeStatus(task)
     }
+
+    if (e.target.hasAttribute('data-delete')) {
+        const id = e.target.closest('.todo-item').dataset.id
+        const task = model.findTask(id)
+        model.removeTask(task)
+        view.removeTask(task)
+
+    }
+
 })
 

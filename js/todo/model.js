@@ -43,7 +43,13 @@ export default class Model {
         return task;
     }
 
-    doneTask(task) {
+    changeStatusTask(task) {
+
+        if (task.status === 'active') {
+            task.status === 'done'
+        }else {
+            task.status === 'active'
+        }
         task.status = 'done';
         this.saveToLocalStorage();
     }
@@ -55,12 +61,3 @@ export default class Model {
     }
 }
 
-// tasks = ['Заверстать стартовый шаблон', 'Написать скрипт', 'Записать урок', '465465464'];
-// tasks = [
-//     {
-//         status: 'active',
-// 		text: 'Заверстать стартовый шаблон',
-// 	},
-// 	{},
-// 	{},
-// ];

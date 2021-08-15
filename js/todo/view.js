@@ -28,4 +28,15 @@ export default class View {
     clearInput() {
         this.elements.input.value = '';
     }
+
+    changeStatus(taskObject) {
+        taskObject.id
+        const taskElement = this.elements.tasksList.querySelector(`[data-id="${taskObject.id}"]`)
+        let taskTextEl = taskElement.querySelector('span')
+        if(taskObject.status === 'done') {
+            taskTextEl.classList.add('completed')
+        }else {
+            taskTextEl.classList.remove('completed')
+        }
+    }
 }
